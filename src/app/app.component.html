@@ -1,14 +1,32 @@
 <p>{{titulo}}</p>
 
+<mat-form-field appearance="fill">
+  <mat-label>Nome</mat-label>
+  <input matInput [(ngModel)]="usuario.nome" placeholder="digite o nome">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>CPF</mat-label>
+  <input matInput [(ngModel)]="usuario.cpf" placeholder="digite o cpf">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Idade</mat-label>
+  <input matInput [(ngModel)]="usuario.idade" placeholder="digite a idade">
+</mat-form-field>
+
+<button mat-raised-button mat-icon-button color="primary" (click)="inserirUsuario()">
+  <mat-icon>add</mat-icon>
+</button>
+
 <br>
 
-Nome: <input [(ngModel)]="usuario.nome"><br>
-CPF: <input [(ngModel)]="usuario.cpf"><br>
-Idade: <input [(ngModel)]="usuario.idade"><br>
-<button (click)="inserirUsuario()">Enviar</button>
-
-<br>
-
-<ul>
-  <li *ngFor="let usuario of usuarios">{{usuario.nome}}</li>
-</ul>
+<mat-card *ngFor="let usuario of usuarios" class="mat-card-simples">
+  <mat-card-header>
+    <mat-card-title><mat-icon>person</mat-icon>{{usuario.nome}}</mat-card-title>
+    <mat-card-subtitle *ngIf="usuario.cpf">CPF: {{usuario.cpf}} Idade: {{usuario.idade}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    Blablabla blaBlablabla blaBlablabla blaBlablabla blaBlablabla blaBlablabla blaBlablabla bla
+  </mat-card-content>
+</mat-card>
