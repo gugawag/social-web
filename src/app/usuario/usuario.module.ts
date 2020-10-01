@@ -9,7 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ListagemUsuarioComponent } from './listagem-usuario/listagem-usuario.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BrowserModule} from '@angular/platform-browser';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [CadastroUsuarioComponent, ListagemUsuarioComponent],
@@ -25,7 +25,8 @@ import {BrowserModule} from '@angular/platform-browser';
     MatFormFieldModule,
     FormsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule
   ]
 })
 export class UsuarioModule { }

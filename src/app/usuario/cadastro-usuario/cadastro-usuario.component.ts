@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Usuario} from '../../shared/model/usuario';
+import {USUARIOS} from '../../shared/model/USUARIOS';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -13,7 +14,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   constructor() {
     this.usuario = new Usuario();
-    this.usuarios = new Array<Usuario>();
+    this.usuarios = USUARIOS;
   }
 
   ngOnInit(): void {
