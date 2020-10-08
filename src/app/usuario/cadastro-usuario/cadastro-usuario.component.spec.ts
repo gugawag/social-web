@@ -21,5 +21,6 @@ describe('CadastroUsuarioComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.inserirUsuario).toHaveBeenCalled();
   });
 });
