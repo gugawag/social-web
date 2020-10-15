@@ -1,22 +1,23 @@
-import { Injectable } from '@angular/core';
-import {USUARIOS} from '../model/USUARIOS';
+import {Injectable} from '@angular/core';
 import {Usuario} from '../model/usuario';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  usuarios: Array<Usuario>;
 
-  constructor() {
-    this.usuarios = USUARIOS;
+  URL_USUARIOS = 'http://localhost:3000/usuarios';
+
+  constructor(private httpClient: HttpClient) {
   }
 
-  listar(): Array<Usuario> {
-    return this.usuarios;
+  listar(): Observable<Usuario[]> {
+    return this.httpClient.get<Usuario[]>(this.URL_USUARIOS);
   }
 
-  inserir(usuario: Usuario): void {
-    this.usuarios.push(usuario);
+  inserir(usuario: Usuario): Observable<Usuario> {
+    return this.httpClient.post<Usuario>(this.URL_USUARIOS, usuario);
   }
 }
