@@ -1,32 +1,22 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nome": "Gustavo",
+      "id": 7,
+      "nome": "Gustavo Wagner",
       "cpf": "123",
-      "idade": 34
+      "idade": "45"
     },
     {
-      "id": 2,
-      "nome": "Wagner",
-      "cpf": "124",
-      "idade": 32
+      "nome": "Teste Alterado",
+      "cpf": "345",
+      "idade": "30",
+      "id": 9
     },
     {
-      "nome": "Diniz",
-      "cpf": "123",
-      "idade": "123",
-      "id": 3
-    },
-    {
-      "nome": "Mewnsees",
-      "cpf": "32445",
-      "idade": "23424",
-      "id": 4
-    },
-    {
-      "nome": "sdsdsd",
-      "id": 5
+      "nome": "Novo",
+      "cpf": "126",
+      "idade": "45",
+      "id": 10
     }
   ],
   "mensagens": []
