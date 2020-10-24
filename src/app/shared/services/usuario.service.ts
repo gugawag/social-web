@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Usuario} from '../model/usuario';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,10 @@ export class UsuarioService {
   }
 
   listar(): Observable<Usuario[]> {
-    return this.httpClient.get<Usuario[]>(this.URL_USUARIOS);
+    return this.httpClient.get<Usuario[]>(this.URL_USUARIOS).pipe(catchError(erro => {
+      console.log('Erro:', erro);
+      return of(undefined);
+    }));
   }
 
   inserir(usuario: Usuario): Observable<Usuario> {
