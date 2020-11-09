@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Usuario} from '../../shared/model/usuario';
 import {UsuarioService} from '../../shared/services/usuario.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MensagemService} from '../../shared/services/mensagem.service';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -14,7 +16,8 @@ export class CadastroUsuarioComponent implements OnInit {
 
   operacaoCadastro = true;
 
-  constructor(private usuarioService: UsuarioService, private rotalAtual: ActivatedRoute, private roteador: Router) {
+  constructor(private usuarioService: UsuarioService, private rotalAtual: ActivatedRoute, private roteador: Router,
+              private mensagemService: MensagemService) {
     this.usuario = new Usuario();
     if (this.rotalAtual.snapshot.paramMap.has('id')) {
       this.operacaoCadastro = false;
@@ -34,6 +37,7 @@ export class CadastroUsuarioComponent implements OnInit {
       this.usuarioService.atualizar(this.usuario).subscribe(
         usuarioAlterado => {
           console.log(usuarioAlterado);
+          this.mensagemService.success('Usuário alterado com sucesso!');
           this.roteador.navigate(['listarusuarios']);
         }
       );
@@ -41,6 +45,7 @@ export class CadastroUsuarioComponent implements OnInit {
       this.usuarioService.inserir(this.usuario).subscribe(
         usuarioInserido => {
           console.log(usuarioInserido);
+          this.mensagemService.success('Usuário alterado com sucesso!');
           this.roteador.navigate(['listarusuarios']);
         }
       );

@@ -14,6 +14,8 @@ import {UsuarioModule} from './usuario/usuario.module';
 import {LayoutModule} from './layout/layout.module';
 import {HttpClientModule} from '@angular/common/http';
 import {PipesModule} from './shared/pipes/pipes.module';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {InterceptorModule} from './interceptor/interceptor.module';
 
 @NgModule({
     declarations: [
@@ -32,7 +34,9 @@ import {PipesModule} from './shared/pipes/pipes.module';
         MatIconModule,
         UsuarioModule,
         HttpClientModule,
-        PipesModule
+        InterceptorModule,
+        PipesModule,
+        MatSnackBarModule
     ],
     providers: [],
     exports: [
