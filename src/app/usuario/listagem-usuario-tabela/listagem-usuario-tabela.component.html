@@ -38,7 +38,7 @@
     <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
     <mat-cell *matCellDef="let item">
       <button mat-icon-button>
-        <mat-icon>edit</mat-icon>
+        <mat-icon (click)="editar(item)">edit</mat-icon>
       </button>
       <button mat-icon-button>
         <mat-icon (click)="apagar(item.id)">delete</mat-icon>

@@ -13,6 +13,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { ListagemUsuarioTabelaComponent } from './listagem-usuario-tabela/listagem-usuario-tabela.component';
 import {MatTableModule} from '@angular/material/table';
 import {PipesModule} from '../shared/pipes/pipes.module';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [CadastroUsuarioComponent, ListagemUsuarioComponent, ListagemUsuarioTabelaComponent],
@@ -21,18 +22,19 @@ import {PipesModule} from '../shared/pipes/pipes.module';
     ListagemUsuarioComponent,
     ListagemUsuarioTabelaComponent
   ],
-  imports: [
-    BrowserAnimationsModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatIconModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatTableModule,
-    PipesModule
-  ]
+    imports: [
+        BrowserAnimationsModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatIconModule,
+        MatButtonModule,
+        FlexLayoutModule,
+        MatTableModule,
+        PipesModule,
+        MatSlideToggleModule
+    ]
 })
 export class UsuarioModule { }

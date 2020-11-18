@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Usuario} from '../../shared/model/usuario';
-import {UsuarioService} from '../../shared/services/usuario.service';
 import {Router} from '@angular/router';
+import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
 
 @Component({
   selector: 'app-listagem-usuario',
@@ -11,14 +11,13 @@ import {Router} from '@angular/router';
 export class ListagemUsuarioComponent implements OnInit {
 
   usuarios: Array<Usuario>;
+  maioresIdade = false;
 
-  constructor(private usuarioService: UsuarioService, private roteador: Router) {
+  constructor(private usuarioService: UsuarioFirestoreService, private roteador: Router) {
   }
 
   ngOnInit(): void {
-    this.usuarioService.listar().subscribe(
-      usuarios => this.usuarios = usuarios
-    );
+    this.atualizarListagem();
   }
 
   editar(usuario: Usuario): void {
@@ -37,4 +36,15 @@ export class ListagemUsuarioComponent implements OnInit {
 
   }
 
+  atualizarListagem(): void {
+    if (this.maioresIdade) {
+      this.usuarioService.listarMaioresDeIdade().subscribe(
+        usuarios => this.usuarios = usuarios
+      );
+    } else {
+      this.usuarioService.listar().subscribe(
+        usuarios => this.usuarios = usuarios
+      );
+    }
+  }
 }
