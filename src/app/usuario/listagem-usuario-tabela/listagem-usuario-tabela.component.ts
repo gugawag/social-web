@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Usuario} from '../../shared/model/usuario';
-import {UsuarioService} from '../../shared/services/usuario.service';
 import {MatTableDataSource} from '@angular/material/table';
-import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
 import {Router} from '@angular/router';
+import {UsuarioService} from '../../shared/services/usuario.service';
 
 @Component({
   selector: 'app-listagem-usuario-tabela',
@@ -15,7 +14,7 @@ export class ListagemUsuarioTabelaComponent implements OnInit {
   dataSource: MatTableDataSource<Usuario>;
   mostrarColunas = ['nome', 'cpf', 'idade', 'acoes'];
 
-  constructor(private usuarioService: UsuarioFirestoreService, private roteador: Router) {
+  constructor(private usuarioService: UsuarioService, private roteador: Router) {
   }
 
   ngOnInit(): void {
@@ -28,7 +27,7 @@ export class ListagemUsuarioTabelaComponent implements OnInit {
     this.dataSource.filter = texto.trim().toLowerCase();
   }
 
-  apagar(id: string): void {
+  apagar(id: number): void {
     this.usuarioService.remover(id).subscribe(
       apagado => {
         const indx = this.dataSource.data.findIndex(usuario => usuario.id === id);
